@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6d7e7391eb.js" crossorigin="anonymous"></script>
+
+    <title>GameStore</title>
+    <style>
+
+        .juumbotron {
+            background-image: url(https://i.pinimg.com/originals/db/a9/42/dba94232c569bddc40386bcb540e0f95.png);
+            background-size: cover;
+            background-position-y: center;
+            background-position-x: center;
+            padding-top: 9rem;
+            height: 100%;
+            width: 100%;
+
+        }
+
+        .navbar {
+            border-bottom: solid orange;
+            background-color: black;
+
+        }
+
+        .navbartogglericon {
+            background-color: orange;
+        }
+
+        .navbar-nav li a {
+            color: white;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-right: 10px;
+        }
+
+        .dropdownitem {
+            background-color: orange;
+        }
+
+        .headingStyle {
+            font-size: 5rem;
+        }
+
+        .paragraphStyle {
+            font-size: 2rem;
+        }
+
+        .containerPosition {
+            background-position: center;
+        }
+
+        .logoStyle {
+            font-weight: 600;
+            color: orange;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .card-title {
+            color: black;
+        }
+
+
+        main {
+            padding: 3rem;
+            margin-bottom: 5rem;
+
+        }
+
+        body {
+            background-color: #232423;
+            background-image: url(https://images.unsplash.com/photo-1578364249730-0c4ee16426fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+            background-size: cover;
+            background-position-y: center;
+            background-position-x: center;
+        }
+
+        .card {
+            border: 2px solid orange;
+            background-color: #eee;
+            margin-bottom: 2rem;
+            padding: 0.3rem;
+        }
+
+        .btn {
+            background-color: #929394;
+            border: black;
+
+        }
+
+        footer article {
+            width: 40%;
+            display: inline-block;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        footer {
+            padding: -5rem;
+            background-color: black;
+            border-top: solid orange;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer .container {
+            color: orange;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        footer article:nth-child(2) {
+            text-align-last: right;
+
+        }
+
+        footer article:nth-child(1) {
+            font-size: larger;
+            text-align: left;
+        }
+
+        footer i {
+            padding: 10px;
+            font-size: x-large;
+            text-align: right;
+            color: orange;
+
+        }
+
+        .nav.justify-content-center li a {
+            color: white;
+            font-size: larger;
+        }
+
+        .container {
+            padding: 5px;
+            background-position: center;
+        }
+
+        #logoutForm {
+            text-align: center;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        form {
+            text-align: center;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+
+            background-color: orange;
+            display: block;
+            margin-top: 0.1rem;
+        }
+
+        .login {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0 20px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+
+        .loginbtn {
+            background-color: #929394;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .loginbtn:hover {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <th:block th:include="~{/fragments/user-nav}"></th:block>
+</header>
+<main>
+    <form class="mx-auto border border-white col-md-6 col-sm-12"
+          th:object="${productUpdateBindingModel}" th:action="@{/products/update}" method="POST">
+        <div class="container">
+            <h1 class="text-white login">Update Product</h1>
+            <hr>
+            <h4 th:if="${notFound}" class="text-center text-dark">Wrong product name!</h4>
+            <h6 th:each="e : ${#fields.errors()}" th:text="${e}" class="text-center text-dark">Wrong username</h6>
+            <div class="form-group">
+                <label class="text-white" for="name"><b>Name</b></label>
+                <input th:field="*{name}" th:errorclass="bg-light" type="text" placeholder="Enter Name" name="name"
+                       id="name" required>
+            </div>
+
+            <hr>
+            <div class="form-group">
+                <label class="text-white" for="quantity"><b>Quantity</b></label>
+                <input th:field="*{quantity}" th:errorclass="bg-light" type="text" placeholder="Enter Quantity"
+                       name="quantity" id="quantity" required>
+            </div>
+
+
+            <hr>
+
+            <button type="submit" class="loginbtn login">Update</button>
+        </div>
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+<footer>
+    <th:block th:include="~{/fragments/footer}"></th:block>
+</footer>
+</body>
+</html>

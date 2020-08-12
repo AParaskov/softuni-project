@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6d7e7391eb.js" crossorigin="anonymous"></script>
+
+    <title>GameStore</title>
+    <style>
+        .Jumbotron {
+            background-image: url(https://images.unsplash.com/photo-1552820728-8b83bb6b773f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80);
+            background-size: cover;
+            background-position-y: center;
+            background-position-x: center;
+            padding: 9rem;
+            height: 100%;
+            width: 100%;
+        }
+
+        .navbar {
+            border-bottom: solid orange;
+            background-color: black;
+
+        }
+
+        .navbartogglericon {
+            background-color: orange;
+        }
+
+        .navbar-nav li a {
+            color: white;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-right: 10px;
+        }
+
+        .dropdownitem {
+            background-color: orange;
+        }
+
+        .headingStyle {
+            font-size: 5rem;
+        }
+
+        .paragraphStyle {
+            font-size: 2rem;
+        }
+
+        .containerPosition {
+            background-position: center;
+        }
+
+        .logoStyle {
+            font-weight: 600;
+            color: orange;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .card-title {
+            color: black;
+        }
+
+        main {
+            background-color: #232423;
+
+            margin-bottom: 5rem;
+
+        }
+
+        body {
+            background-color: #232423;
+            background-size: cover;
+            background-position-y: center;
+            background-position-x: center;
+        }
+
+        .card {
+            border: 2px solid orange;
+            background-color: #eee;
+            margin-bottom: 2rem;
+            padding: 0.3rem;
+        }
+
+        .btn {
+            background-color: #929394;
+            border: black;
+
+        }
+
+        footer article {
+            width: 40%;
+            display: inline-block;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        footer {
+            padding: -5rem;
+            background-color: black;
+            border-top: solid orange;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer .container {
+            color: orange;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        footer article:nth-child(2) {
+            text-align-last: right;
+
+        }
+
+        footer article:nth-child(1) {
+            font-size: larger;
+            text-align: left;
+        }
+
+        footer i {
+            padding: 10px;
+            font-size: x-large;
+            text-align: right;
+            color: orange;
+
+        }
+
+        .nav.justify-content-center li a {
+            color: white;
+            font-size: larger;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <th:block th:include="~{/fragments/user-nav}"></th:block>
+</header>
+<main>
+    <div class="jumbotron Jumbotron jumbotron-fluid bg-dark text-white text-center">
+        <div class="container containerPosition">
+            <h2 class="display-2 headingStyle">Welcome to the world of gaming</h2>
+            <p class="lead paragraphStyle">Why live <span class="bold">ONE</span> life when you can experience <span
+                    class="bold">MANY</span>...</p>
+        </div>
+    </div>
+
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-6 col-lg-3" th:each="p : ${products}" th:object="${p}">
+                <div class="card">
+                    <img th:src="*{imgUrl}" class="card-img-top img-fluid" alt="">
+                    <div class="card-block">
+                        <h3 class="card-title" th:text="*{name}">Ghost of Tsushima</h3>
+                        <h4 th:text="*{price}">Price</h4>
+                        <a th:href="@{/users/login}" class="btn btn-primary">View product</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</main>
+
+<footer>
+    <th:block th:include="~{/fragments/footer}"></th:block>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+</html>

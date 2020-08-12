@@ -1,0 +1,41 @@
+<th:block xmlns:th="http://www.thymeleaf.org"
+          xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <article>
+        &copy; Atanas Paraskov GameStore
+    </article>
+    <article>
+        <i class="fa fa-facebook" aria-hidden="true"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-youtube"></i>
+    </article>
+    <div class="container">
+        <th:block sec:authorize="isAnonymous()">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/login">Contact</a>
+                </li>
+            </ul>
+        </th:block>
+        <th:block sec:authorize="isAuthenticated()">
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a sec:authorize="hasAnyRole('ADMIN', 'USER')" class="nav-link active" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a sec:authorize="hasRole('USER')" class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a sec:authorize="hasRole('USER')" class="nav-link" href="/contact">Contact</a>
+                </li>
+            </ul>
+        </th:block>
+
+    </div>
+</th:block>

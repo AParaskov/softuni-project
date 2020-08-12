@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/6d7e7391eb.js" crossorigin="anonymous"></script>
+
+    <title>GameStore</title>
+    <style>
+
+        .navbar {
+            border-bottom: solid orange;
+            background-color: black;
+
+        }
+
+        .navbartogglericon {
+            background-color: orange;
+        }
+
+        .navbar-nav li a {
+            color: white;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+            padding-right: 10px;
+        }
+
+        .dropdownitem {
+            background-color: orange;
+        }
+
+        .headingStyle {
+            font-size: 5rem;
+        }
+
+        .paragraphStyle {
+            font-size: 2rem;
+        }
+
+        .containerPosition {
+            background-position: center;
+        }
+
+        .logoStyle {
+            font-weight: 600;
+            color: orange;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+
+        main {
+            padding: 3rem;
+            margin-bottom: 5rem;
+        }
+
+        body {
+            background-color: #232423;
+            background-image: url(https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1947&q=80);
+            background-size: cover;
+            background-position-y: center;
+            background-position-x: center;
+
+        }
+
+        main .container {
+            background-color: orange;
+            padding: 30px;
+
+        }
+
+        .title {
+            text-align: center;
+
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: auto auto;
+            padding: 10px;
+            justify-items: center;
+            background-color: white;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .grid-items img {
+            border: solid 1px black;
+            background-position: cover;
+
+        }
+
+        div.product-photo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .product-title {
+            max-width: 600px;
+            overflow-wrap: normal;
+            text-align: left;
+            margin: 0;
+        }
+
+        .product-details {
+            width: auto;
+            font-size: 16px;
+            text-align: left;
+            margin: 10px;
+            background-color: white;
+        }
+
+        .product-price {
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .emphasized-text {
+            font-weight: bold;
+        }
+
+        .form-container {
+            width: 300px;
+            font-size: 18px;
+            text-align: left;
+            background-color: white;
+        }
+
+        .product-description-long {
+            width: 100%;
+        }
+
+        .customer-review {
+            border-radius: 5px;
+            background-color: #acadac;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .review-details {
+            font-weight: bold;
+        }
+
+        .review-details-text {
+            font-weight: normal;
+
+        }
+
+        input[type=text],
+        input[type=number] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #56fc56;
+        }
+
+        button[type=submit] {
+            width: 100%;
+            color: ;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .product-description {
+            font-size: 16px;
+            /* max-width: 600px; */
+            margin: 25px;
+            text-align: justify;
+            background-color: white;
+        }
+
+        .review-container {
+            background-color: white;
+            margin: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-position: center;
+        }
+
+        .title-container {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: x-large;
+            color: white;
+            font-weight: bolder;
+            margin: 0;
+        }
+
+        .description-container {
+            background-color: white;
+            margin: 0;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        main hr {
+            background-color: white;
+        }
+
+        .button-style {
+            width: 100%;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background-color: #56fc56;
+
+        }
+
+
+        #logoutForm {
+            text-align: center;
+            font-size: larger;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        footer article {
+            width: 40%;
+            display: inline-block;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        footer {
+            padding: -5rem;
+            background-color: black;
+            border-top: solid orange;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer .container {
+            color: orange;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        footer article:nth-child(2) {
+            text-align-last: right;
+
+        }
+
+        footer article:nth-child(1) {
+            font-size: larger;
+            text-align: left;
+        }
+
+        footer i {
+            padding: 10px;
+            font-size: x-large;
+            text-align: right;
+            color: orange;
+
+        }
+
+        .nav.justify-content-center li a {
+            color: white;
+            font-size: larger;
+        }
+
+
+    </style>
+</head>
+<body>
+<header>
+    <th:block th:include="~{/fragments/user-nav}"></th:block>
+</header>
+<main>
+
+    <div class="container border border-dark rounded col-md-6-fluid" th:object="${product}">
+        <section id="product-details">
+            <div class="title-container col-sm-12-fluid">
+                <h3 class="title"><span>PRODUCT DETAILS</span></h3>
+            </div>
+
+            <div class="row justify-content-center">
+
+                <div class="grid-container border border-dark rounded col-md-12-fluid">
+                    <div class="col-md-12-fluid col-sm-6-fluid">
+                        <div class="product-photo"><img th:src="*{imgUrl}" alt="Product Photo"/></div>
+                    </div>
+                    <div class="clearfix visible-sm-block"></div>
+                    <div class="col-md-12-fluid col-sm-6-fluid">
+                        <h1 th:text="*{name}" class="product-title text-center">Head First Design Patterns</h1>
+                        <div class="product-details">
+                            <p class="emphasized-text">Manufacturer: <i><span th:text="*{manufacturer}"
+                                                                              id="manufacturer">Eric Freeman, Elisabeth Robson, Kathy
+                                      Sierra</span></i></p>
+                            <p class="emphasized-text">Quantity left: <i><span th:text="*{quantity}" id="quantity-left">8</span></i>
+                            </p>
+                            <p class="product-price">&dollar;<span th:text="*{price}"></span></p>
+                        </div>
+                        <hr>
+                        <div class="form-container">
+                            <form class="qtyFrm" th:object="${shoppingCartProductAddBindingModel}"
+                                  th:action="@{/shopping-cart/add}" method="POST">
+                              <span th:if="${product.quantity == 0}">
+                                  <input type="hidden" th:field="*{productId}">
+                              <label class="invisible" for="quantity" hidden>Quantity:</label>
+                              <div class="form-group">
+                                  <input th:field="*{quantity}" type="hidden" id="quantity" name="quantity" min="1"
+                                         placeholder="1">
+                              </div>
+                              <input class="action-button" type="hidden" value="ADD TO CART">
+                              </span>
+                                <span th:unless="${product.quantity == 0}">
+                                   <input type="hidden" th:field="*{productId}">
+                              <label for="quantity">Quantity:</label>
+                              <div class="form-group">
+                                  <input th:field="*{quantity}" type="number" id="quantity" name="quantity" min="1"
+                                         placeholder="1">
+                              </div>
+                              <input class="action-button" type="submit" value="ADD TO CART">
+                              </span>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <hr>
+        <section id="product-description">
+            <div class="row col-sm-12-fluid justify-content-center">
+                <div class="description-container border border-dark rounded w-100">
+                    <h3 class="title"><span>PRODUCT DESCRIPTION</span></h3>
+                    <div class="product-description-long">
+                        <p th:text="*{description}" class="product-description">Read the classic first, then read this
+                            one, and then go back and read the
+                            classic one with a renewed understanding. This book makes design patterns much easier to
+                            understand.
+                            It’s also a useful book for learning how to teach complex topics and make them interesting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <hr>
+        <section id="all-reviews">
+            <div class="row col-sm-12-fluid justify-content-center">
+                <div class="review-container border border-dark rounded w-100">
+                    <h3 class="title"><span>REVIEWS</span></h3>
+                    <div class="customer-review" th:each="r : ${product.reviews}" th:object="${r}">
+                        <p class="review-details">Author: <i><span th:text="${r.userName}" th:value="${r.userName}"
+                                                                   class="review-details-text">Atanas Paraskov</span></i>
+                        </p>
+                        <p class="review-details">Review: <i><span th:text="${r.text}" th:value="${r.text}"
+                                                                   class="review-details-text">This book has helped me
+                                lay the foundations of my design patterns knowledge.</span></i></p>
+                        <p class="review-details">Date: <i><span th:text="${r.addedOn}" th:value="${r.addedOn}"
+                                                                 class="review-details-text">This book has helped me
+                                lay the foundations of my design patterns knowledge.</span></i></p>
+                    </div>
+                    <div class="row col-sm-3-fluid justify-content-center">
+                        <a th:href="@{/reviews/add(product_id = *{id})}" class="btn button-style w-50">WRITE A
+                            REVIEW</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        </section>
+
+    </div>
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+<footer>
+    <th:block th:include="~{/fragments/footer}"></th:block>
+</footer>
+</body>
+</html>
