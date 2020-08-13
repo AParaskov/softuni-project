@@ -34,7 +34,7 @@ public class ProductController {
     @GetMapping
     public ModelAndView products(ModelAndView modelAndView) {
         modelAndView.addObject("products", this.productService.findAllProducts());
-        modelAndView.setViewName("home2");
+        modelAndView.setViewName("products");
 
         return modelAndView;
     }

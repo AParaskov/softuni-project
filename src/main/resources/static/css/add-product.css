@@ -1,0 +1,227 @@
+
+.juumbotron {
+    background-image: url(https://i.pinimg.com/originals/db/a9/42/dba94232c569bddc40386bcb540e0f95.png);
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    padding-top: 9rem;
+    height: 100%;
+    width: 100%;
+
+}
+
+.navbar {
+    border-bottom: solid orange;
+    background-color: black;
+
+}
+
+.navbartogglericon {
+    background-color: orange;
+}
+
+.navbar-nav li a {
+    color: white;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 10px;
+}
+
+.dropdownitem {
+    background-color: orange;
+}
+
+.headingStyle {
+    font-size: 5rem;
+}
+
+.paragraphStyle {
+    font-size: 2rem;
+}
+
+.containerPosition {
+    background-position: center;
+}
+
+.logoStyle {
+    font-weight: 600;
+    color: orange;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.card-title {
+    color: black;
+}
+
+#logoutForm {
+    text-align: center;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    padding: 3rem;
+    margin-bottom: 5rem;
+}
+
+body {
+    background-color: #232423;
+    background-image: url(https://images.unsplash.com/photo-1578364249730-0c4ee16426fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80);
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+.card {
+    border: 2px solid orange;
+    background-color: #eee;
+    margin-bottom: 2rem;
+    padding: 0.3rem;
+}
+
+.btn {
+    background-color: #929394;
+    border: black;
+
+}
+
+footer article {
+    width: 40%;
+    display: inline-block;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    padding: -5rem;
+    background-color: black;
+    border-top: solid orange;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer article:nth-child(2) {
+    text-align-last: right;
+
+}
+
+footer article:nth-child(1) {
+    font-size: larger;
+    text-align: left;
+}
+
+footer i {
+    padding: 10px;
+    font-size: x-large;
+    text-align: right;
+    color: orange;
+
+}
+
+.nav.justify-content-center li a {
+    color: white;
+    font-size: larger;
+}
+
+.container {
+
+    background-position: center;
+}
+
+form {
+    text-align: center;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: orange;
+    display: block;
+    margin-top: 0.1rem;
+}
+
+.register {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+select:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+
+.registerbtn {
+    background-color: #929394;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    opacity: 1;
+}
+
+
+a {
+    color: dodgerblue;
+}
+
+
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+}

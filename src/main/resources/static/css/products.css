@@ -1,0 +1,144 @@
+.juumbotron {
+    background-image: url(https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1347&q=80);
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+    height: 100%;
+    width: 100%;
+    padding-left: 4rem;
+    padding-bottom: 4rem;
+
+
+}
+
+.navbar {
+    border-bottom: solid orange;
+    background-color: black;
+
+}
+
+.navbartogglericon {
+    background-color: orange;
+}
+
+.navbar-nav li a {
+    color: white;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 10px;
+}
+
+.dropdownitem {
+    background-color: orange;
+}
+
+.headingStyle {
+    font-size: 3rem;
+    font-weight: bolder;
+    font-style: italic;
+    font-family: monospace;
+    text-align: center;
+    position: relative;
+    right: 20px;
+    background-color: orange;
+    border: solid black;
+}
+
+.paragraphStyle {
+    font-size: 2rem;
+}
+
+.containerPosition {
+    background-position: center;
+}
+
+.logoStyle {
+    font-weight: 600;
+    color: orange;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.card-title {
+    color: black;
+}
+
+main {
+
+    padding: 3rem;
+    margin-bottom: 5rem;
+
+}
+
+
+body {
+    background-color: #232423;
+    background-image: url(https://images.unsplash.com/photo-1566055972289-c52022ae23b7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+#logoutForm {
+    text-align: center;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.card {
+    border: 2px solid orange;
+    background-color: #eee;
+    margin-bottom: 2rem;
+    padding: 0.3rem;
+}
+
+.btn {
+    background-color: #929394;
+    border: black;
+
+}
+
+footer article {
+    width: 40%;
+    display: inline-block;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    padding: -5rem;
+    background-color: black;
+    border-top: solid orange;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer article:nth-child(2) {
+    text-align-last: right;
+}
+
+footer article:nth-child(1) {
+    font-size: larger;
+    text-align: left;
+}
+
+footer i {
+    padding: 10px;
+    font-size: x-large;
+    text-align: right;
+    color: orange;
+}
+
+.nav.justify-content-center li a {
+    color: white;
+    font-size: larger;
+}

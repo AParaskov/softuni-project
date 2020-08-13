@@ -1,0 +1,258 @@
+
+.navbar {
+    border-bottom: solid orange;
+    background-color: black;
+
+}
+
+.navbartogglericon {
+    background-color: orange;
+}
+
+.navbar-nav li a {
+    color: white;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    padding-right: 10px;
+}
+
+.dropdownitem {
+    background-color: orange;
+}
+
+.headingStyle {
+    font-size: 5rem;
+}
+
+.paragraphStyle {
+    font-size: 2rem;
+}
+
+.containerPosition {
+    background-position: center;
+}
+
+.logoStyle {
+    font-weight: 600;
+    color: orange;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+main {
+    padding: 3rem;
+    margin-bottom: 5rem;
+}
+
+body {
+    background-color: #232423;
+    background-image: url(https://images.unsplash.com/photo-1580234811497-9df7fd2f357e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1947&q=80);
+    background-size: cover;
+    background-position-y: center;
+    background-position-x: center;
+
+}
+
+main .container {
+    background-color: orange;
+    padding: 30px;
+
+}
+
+.title {
+    text-align: center;
+
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 10px;
+    justify-items: center;
+    background-color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.grid-items img {
+    border: solid 1px black;
+    background-position: center;
+
+}
+
+div.product-photo img {
+    width: 100%;
+    height: 100%;
+}
+
+.product-title {
+    max-width: 600px;
+    overflow-wrap: normal;
+    text-align: left;
+    margin: 0;
+}
+
+.product-details {
+    width: auto;
+    font-size: 16px;
+    text-align: left;
+    margin: 10px;
+    background-color: white;
+}
+
+.product-price {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.emphasized-text {
+    font-weight: bold;
+}
+
+.form-container {
+    width: 300px;
+    font-size: 18px;
+    text-align: left;
+    background-color: white;
+}
+
+.product-description-long {
+    width: 100%;
+}
+
+.customer-review {
+    border-radius: 5px;
+    background-color: #acadac;
+    padding: 10px;
+    margin: 5px;
+}
+
+.review-details {
+    font-weight: bold;
+}
+
+.review-details-text {
+    font-weight: normal;
+
+}
+
+input[type=text],
+input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #56fc56;
+}
+
+.product-description {
+    font-size: 16px;
+    /* max-width: 600px; */
+    margin: 25px;
+    text-align: justify;
+    background-color: white;
+}
+
+.review-container {
+    background-color: white;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-position: center;
+}
+
+.title-container {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    color: white;
+    font-weight: bolder;
+    margin: 0;
+}
+
+.description-container {
+    background-color: white;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main hr {
+    background-color: white;
+}
+
+.button-style {
+    width: 100%;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #56fc56;
+
+}
+
+
+#logoutForm {
+    text-align: center;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+footer article {
+    width: 40%;
+    display: inline-block;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer {
+    padding: -5rem;
+    background-color: black;
+    border-top: solid orange;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .container {
+    color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+footer article:nth-child(2) {
+    text-align-last: right;
+
+}
+
+footer article:nth-child(1) {
+    font-size: larger;
+    text-align: left;
+}
+
+footer i {
+    padding: 10px;
+    font-size: x-large;
+    text-align: right;
+    color: orange;
+
+}
+
+.nav.justify-content-center li a {
+    color: white;
+    font-size: larger;
+}
