@@ -30,8 +30,7 @@
 
                 <div class="col-md-6 col-lg-6" th:each="p : ${shoppingCartProducts}" th:object="${p}">
                     <div class="card text-center">
-                        <img src="https://images-na.ssl-images-amazon.com/images/I/81-u%2B1yZ07L._SX425_.jpg"
-                             class="card-img-top img-fluid" alt="">
+                        <img th:src="*{product.imgUrl}" class="card-img-top img-fluid" alt="">
                         <div class="card-block">
                             <h3 th:text="*{product.name}" class="card-title">Ghost of Tsushima</h3>
                             <p class="emphasized-text">Quantity: <span th:text="*{quantity}">8</span></p>
@@ -43,15 +42,14 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="container col-sm-12-fluid justify-content-center">
+                    <a th:href="@{/shopping-cart/remove-all/{id} (id = *{shoppingCartId})}"
+                       class="button-style btn w-100">PURCHASE</a>
+                    <h1 class="text-white text-center">Total: <span th:text="${total}"></span>&dollar;</h1>
+                </div>
 
             </div>
 
-
-            <div class="container col-sm-12-fluid justify-content-center">
-                <a th:href="@{/shopping-cart/remove-all}" class="button-style btn w-100">PURCHASE</a>
-                <h1 class="text-white text-center">Total: <span th:text="${total}"></span>&dollar;</h1>
-            </div>
 
     </div>
 </main>

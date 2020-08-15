@@ -11,15 +11,10 @@
             <th:block sec:authorize="isAnonymous()">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/home">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/users/login" id="navbarDropdown" role="button"
-                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
-                        <div class="dropdown-menu dropdownitem" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/users/login">Games</a>
-                            <a class="dropdown-item" href="/users/login">Peripheral Equipment</a>
-                        </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/login">Products</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/users/login">Login</a>
@@ -43,14 +38,8 @@
                     <li class="nav-item">
                         <a sec:authorize="hasRole('ADMIN')" class="nav-link" href="/products">Products</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a sec:authorize="hasRole('USER')" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
-                        <div class="dropdown-menu dropdownitem" aria-labelledby="navbarDropdown">
-                            <a sec:authorize="hasRole('USER')" class="dropdown-item" href="/products/games">Games</a>
-                            <a sec:authorize="hasRole('USER')" class="dropdown-item"
-                               href="/products/peripheral-equipment">Peripheral Equipment</a>
-                        </div>
+                    <li class="nav-item">
+                        <a sec:authorize="hasRole('USER')" class="nav-link" href="/products">Products</a>
                     </li>
                     <li class="nav-item">
                         <a sec:authorize="hasRole('USER')" class="nav-link" href="/shopping-cart">Shopping Cart</a>

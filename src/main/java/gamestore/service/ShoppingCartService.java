@@ -1,7 +1,6 @@
 package gamestore.service;
 
 import gamestore.model.entity.ShoppingCart;
-import gamestore.model.entity.ShoppingCartProduct;
 import gamestore.model.service.ShoppingCartProductServiceModel;
 import gamestore.model.view.ShoppingCartProductViewModel;
 
@@ -17,11 +16,7 @@ public interface ShoppingCartService {
 
     void remove(String id);
 
-    ShoppingCartProduct findByProductId(String id);
-
-    ShoppingCartProduct findByShoppingCardId(String id);
-
     BigDecimal total(ShoppingCart shoppingCart);
 
-    void removeAll();
+    void removeAll(String id);
 }

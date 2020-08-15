@@ -30,7 +30,7 @@ public class ProductController {
         this.modelMapper = modelMapper;
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     @GetMapping
     public ModelAndView products(ModelAndView modelAndView) {
         modelAndView.addObject("products", this.productService.findAllProducts());
@@ -39,21 +39,6 @@ public class ProductController {
         return modelAndView;
     }
 
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping("/games")
-    public ModelAndView games(ModelAndView modelAndView) {
-        modelAndView.addObject("games", this.productService.findAllByCategoryDescription("Description for GAMES"));
-        modelAndView.setViewName("games");
-        return modelAndView;
-    }
-
-    @PreAuthorize("hasRole('USER')")
-    @GetMapping("/peripheral-equipment")
-    public ModelAndView peripheralEquipment(ModelAndView modelAndView) {
-        modelAndView.addObject("peripheralEquipment", this.productService.findAllByCategoryDescription("Description for PERIPHERAL_EQUIPMENT"));
-        modelAndView.setViewName("peripheral-equipment");
-        return modelAndView;
-    }
 
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/add")

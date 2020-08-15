@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 
     <meta charset="utf-8">
@@ -31,7 +32,7 @@
     <div class="container text-center">
 
 
-        <div class="row">
+        <div sec:authorize="hasRole('ADMIN')" class="row">
             <div class="col-md-6 col-lg-3" th:each="p : ${products}" th:object="${p}">
                 <div class="card">
                     <img th:src="*{imgUrl}" class="card-img-top img-fluid" alt="">
@@ -39,6 +40,18 @@
                         <h3 class="card-title" th:text="*{name}">Ghost of Tsushima</h3>
                         <h4 th:text="*{price}">Price</h4>
                         <a th:href="@{/products/delete/{id}(id = *{id})}" class="btn btn-primary">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div sec:authorize="hasRole('USER')" class="row">
+            <div class="col-md-6 col-lg-3" th:each="p : ${products}" th:object="${p}">
+                <div class="card">
+                    <img th:src="*{imgUrl}" class="card-img-top img-fluid" alt="">
+                    <div class="card-block">
+                        <h3 class="card-title" th:text="*{name}">Ghost of Tsushima</h3>
+                        <h4 th:text="*{price}">Price</h4>
+                        <a th:href="@{/products/details/(id = *{id})}" class="btn btn-primary">View product</a>
                     </div>
                 </div>
             </div>

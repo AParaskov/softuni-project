@@ -14,6 +14,7 @@ import gamestore.repository.UserRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -61,10 +62,9 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             shoppingCart.getProducts().add(shoppingCartProduct);
 
             this.shoppingCartProductRepository.saveAndFlush(shoppingCartProduct);
-            this.shoppingCartRepository.saveAndFlush(shoppingCart);
+
         } else {
-            if (!this.shoppingCartProductRepository.findAll().contains(findByShoppingCardId(shoppingCartProductServiceModel.getShoppingCart().getId()))
-                    && !this.shoppingCartProductRepository.findAll().contains(findByProductId(shoppingCartProductServiceModel.getProductId()))) {
+            if (this.shoppingCartProductRepository.findByProductAndShoppingCart(product, shoppingCart).isEmpty()) {
                 shoppingCartProduct = this.modelMapper
                         .map(shoppingCartProductServiceModel, ShoppingCartProduct.class);
 
@@ -75,15 +75,19 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
                 shoppingCart.getProducts().add(shoppingCartProduct);
 
+
                 this.shoppingCartProductRepository.saveAndFlush(shoppingCartProduct);
-                this.shoppingCartRepository.saveAndFlush(shoppingCart);
+
+
             } else {
                 shoppingCartProduct = this.shoppingCartProductRepository
                         .findByProductAndShoppingCart(product, shoppingCart)
                         .orElseThrow();
                 shoppingCartProduct.setQuantity(shoppingCartProduct.getQuantity() + shoppingCartProductServiceModel.getQuantity());
                 this.shoppingCartProductRepository.saveAndFlush(shoppingCartProduct);
+
             }
+
 
         }
 
@@ -119,6 +123,8 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
             shoppingCartProductViewModel.setId(shoppingCartProduct.getId());
             shoppingCartProductViewModel.setQuantity(shoppingCartProduct.getQuantity());
             shoppingCartProductViewModel.setProduct(productViewModel);
+            shoppingCartProductViewModel.getProduct().setImgUrl(String.format("/img/%s-%s.jpg", shoppingCartProduct.getProduct().getName(),
+                    shoppingCartProduct.getProduct().getCategory().getName().name()));
 
             return shoppingCartProductViewModel;
         }).collect(Collectors.toList());
@@ -141,19 +147,6 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
     }
 
     @Override
-    public ShoppingCartProduct findByShoppingCardId(String shoppingCartId) {
-        ShoppingCart shoppingCart = this.shoppingCartRepository
-                .findById(shoppingCartId)
-                .orElseThrow();
-
-        ShoppingCartProduct shoppingCartProduct = this.shoppingCartProductRepository
-                .findByShoppingCart(shoppingCart)
-                .orElseThrow();
-
-        return shoppingCartProduct;
-    }
-
-    @Override
     public BigDecimal total(ShoppingCart shoppingCart) {
 
         BigDecimal sum = new BigDecimal(0);
@@ -165,30 +158,18 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         return sum;
     }
 
+    @Transactional
     @Override
-    public void removeAll() {
-        this.shoppingCartProductRepository.findAll()
+    public void removeAll(String id) {
+        this.shoppingCartProductRepository.findAllByShoppingCart_Id(id)
                 .forEach(shoppingCartProduct -> {
                     shoppingCartProduct.getProduct().setQuantity(shoppingCartProduct.getProduct().getQuantity() - shoppingCartProduct.getQuantity());
                     this.productRepository.saveAndFlush(shoppingCartProduct.getProduct());
                 });
         this.shoppingCartProductRepository
-                .deleteAll();
+                .deleteAllByShoppingCart_Id(id);
     }
 
-    @Override
-    public ShoppingCartProduct findByProductId(String id) {
-        Product product = this.productRepository
-                .findById(id)
-                .orElseThrow();
 
-
-        ShoppingCartProduct shoppingCartProduct = this.shoppingCartProductRepository
-                .findByProduct(product)
-                .orElseThrow();
-
-
-        return shoppingCartProduct;
-    }
 
 }

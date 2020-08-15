@@ -71,46 +71,6 @@ public class ShoppingCartServiceTest {
         serviceToTest = new ShoppingCartServiceImpl(mockShoppingCartRepository, mockProductRepository, modelMapper, mockShoppingCartProductRepository, mockUserRepository);
     }
 
-    @Test
-    public void testFindByProductId() {
-        when(mockProductRepository.findById("UUID"))
-                .thenReturn(Optional.of(product));
-
-        when(mockShoppingCartProductRepository.findByProduct(product))
-                .thenReturn(Optional.of(shoppingCartProduct));
-
-        ShoppingCartProduct actualShoppingCartProduct = serviceToTest.findByProductId("UUID");
-
-
-        Assertions.assertEquals(shoppingCartProduct.getId(), actualShoppingCartProduct.getId());
-
-    }
-
-    @Test
-    public void testRemoveAll() {
-        when(mockShoppingCartProductRepository.findAll()).
-                thenReturn(List.of(shoppingCartProduct));
-
-        serviceToTest.removeAll();
-
-        Assertions.assertEquals(0, mockShoppingCartProductRepository.count());
-
-    }
-
-    @Test
-    public void testFindByShoppingCartId() {
-        when(mockShoppingCartRepository.findById("SHC_UUID"))
-                .thenReturn(Optional.of(shoppingCart));
-
-        when(mockShoppingCartProductRepository.findByShoppingCart(shoppingCart))
-                .thenReturn(Optional.of(shoppingCartProduct));
-
-        ShoppingCartProduct actualShoppingCartProduct = serviceToTest.findByShoppingCardId("SHC_UUID");
-
-
-        Assertions.assertEquals(shoppingCartProduct.getId(), actualShoppingCartProduct.getId());
-
-    }
 
     @Test
     public void testRemove() {

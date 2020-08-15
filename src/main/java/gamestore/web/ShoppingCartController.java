@@ -34,6 +34,7 @@ public class ShoppingCartController {
     public ModelAndView shopping_cart(ModelAndView modelAndView, HttpServletRequest httpServletRequest) {
         Principal principal = httpServletRequest.getUserPrincipal();
         ShoppingCart shoppingCart = shoppingCartService.findByUser(principal.getName());
+        modelAndView.addObject("shoppingCartId", shoppingCart.getId());
         modelAndView.addObject("shoppingCartProducts", this.shoppingCartService.findAllShoppingCartProducts(shoppingCart));
         modelAndView.addObject("total", this.shoppingCartService.total(shoppingCart));
         modelAndView.setViewName("shopping-cart");
@@ -67,9 +68,9 @@ public class ShoppingCartController {
     }
 
     @PreAuthorize("hasRole('USER')")
-    @GetMapping("/remove-all")
-    public String delete() {
-        this.shoppingCartService.removeAll();
+    @GetMapping("/remove-all/{id}")
+    public String deleteAll(@PathVariable("id") String id) {
+        this.shoppingCartService.removeAll(id);
         return "redirect:/home";
     }
 }
